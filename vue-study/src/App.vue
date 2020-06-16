@@ -1,19 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ParentToChild></ParentToChild>
+    <hr />
+    <ChildToParent></ChildToParent>
+    <hr />
+    <AncestorToChild></AncestorToChild>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ParentToChild from "@/pages/communicate/ParentToChild/Index";
+import ChildToParent from "@/pages/communicate/ChildToParent/Index";
+import AncestorToChild from "@/pages/communicate/AncestorToChild";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    ParentToChild,
+    ChildToParent,
+    AncestorToChild
   }
-}
+};
 </script>
 
 <style>
