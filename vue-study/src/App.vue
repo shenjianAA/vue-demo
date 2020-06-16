@@ -5,6 +5,8 @@
     <ChildToParent></ChildToParent>
     <hr />
     <AncestorToChild></AncestorToChild>
+    <hr />
+    <BrotherToBrohter></BrotherToBrohter>
   </div>
 </template>
 
@@ -12,13 +14,15 @@
 import ParentToChild from "@/pages/communicate/ParentToChild/Index";
 import ChildToParent from "@/pages/communicate/ChildToParent/Index";
 import AncestorToChild from "@/pages/communicate/AncestorToChild";
+import BrotherToBrohter from "@/pages/communicate/BrotherToBrother";
 
 export default {
   name: "App",
   components: {
     ParentToChild,
     ChildToParent,
-    AncestorToChild
+    AncestorToChild,
+    BrotherToBrohter
   }
 };
 </script>
