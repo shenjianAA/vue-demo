@@ -1,28 +1,16 @@
 <template>
   <div id="app">
-    <ParentToChild></ParentToChild>
-    <hr />
-    <ChildToParent></ChildToParent>
-    <hr />
-    <AncestorToChild></AncestorToChild>
-    <hr />
-    <BrotherToBrohter></BrotherToBrohter>
+    <Communicate></Communicate>
   </div>
 </template>
 
 <script>
-import ParentToChild from "@/pages/communicate/ParentToChild/Index";
-import ChildToParent from "@/pages/communicate/ChildToParent/Index";
-import AncestorToChild from "@/pages/communicate/AncestorToChild";
-import BrotherToBrohter from "@/pages/communicate/BrotherToBrother";
+import Communicate from "@/pages/communicate";
 
 export default {
   name: "App",
   components: {
-    ParentToChild,
-    ChildToParent,
-    AncestorToChild,
-    BrotherToBrohter
+    Communicate
   }
 };
 </script>
