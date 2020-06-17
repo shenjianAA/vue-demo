@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <Slots></Slots>
+    <hr />
     <Communicate></Communicate>
   </div>
 </template>
 
 <script>
 import Communicate from "@/pages/communicate";
+import Slots from "@/pages/slots";
 
 export default {
   name: "App",
   components: {
-    Communicate
+    Communicate,
+    Slots
   }
 };
 </script>
