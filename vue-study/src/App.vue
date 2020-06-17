@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <FormTest></FormTest>
+    <hr />
     <Slots></Slots>
     <hr />
     <Communicate></Communicate>
@@ -9,12 +11,14 @@
 <script>
 import Communicate from "@/pages/communicate";
 import Slots from "@/pages/slots";
+import FormTest from "@/components/Form";
 
 export default {
   name: "App",
   components: {
     Communicate,
-    Slots
+    Slots,
+    FormTest
   }
 };
 </script>
