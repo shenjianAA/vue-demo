@@ -2,12 +2,13 @@
   <div>
     <label v-if="label">{{label}}</label>
     <slot></slot>
-    <p v-if="errMsg">{{errMsg}}</p>
+    <p v-if="errMsg" class="error">{{errMsg}}</p>
   </div>
 </template>
 
 <script>
 import Schema from "async-validator";
+import emitter from "@/utils/mixins/emitter.js";
 export default {
   name: "KFormItem",
   data() {
@@ -15,6 +16,7 @@ export default {
       errMsg: ""
     };
   },
+  mixins: [emitter],
   inject: ["form"],
   props: {
     label: {
@@ -24,6 +26,9 @@ export default {
     prop: String
   },
   mounted() {
+    if (this.prop) {
+      this.dispatch("KForm", "el.add.field", [this]);
+    }
     this.$on("validate", () => {
       this.validate();
     });
@@ -55,5 +60,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.error {
+  color: red;
+}
 </style>
