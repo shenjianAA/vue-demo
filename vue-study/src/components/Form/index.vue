@@ -11,6 +11,9 @@
       <KFormItem>
         <button @click="loginFn">登录</button>
       </KFormItem>
+      <KFormItem>
+        <KCheckBox v-model="model.remember" label="记住密码："></KCheckBox>
+      </KFormItem>
     </KForm>
     {{model}}
   </div>
@@ -20,13 +23,17 @@
 import KInput from "./KInput";
 import KFormItem from "./KFormItem";
 import KForm from "./KForm";
+import KCheckBox from "./KCheckBox";
+import Notice from "@/components/Notice";
+import create from "@/utils/create.js";
 export default {
   name: "Form",
   data() {
     return {
       model: {
         username: "Tom",
-        password: ""
+        password: "",
+        remember: false
       },
       rules: {
         username: [{ required: true, message: "用户名必填" }],
@@ -39,9 +46,11 @@ export default {
       //校验表单
       this.$refs.loginForm.validate(isValid => {
         if (isValid) {
-          alert("登录成功！！！");
+          // alert("登录成功！！！");
+          create(Notice, { title: "xxx", message: "登录成功" }).show();
         } else {
-          alert("有错！！！");
+          // alert("有错！！！");
+          create(Notice, { title: "xxx", message: "校验失败" }).show();
         }
       });
     }
@@ -49,7 +58,9 @@ export default {
   components: {
     KInput,
     KFormItem,
-    KForm
+    KForm,
+    KCheckBox
+    // Notice
   }
 };
 </script>
