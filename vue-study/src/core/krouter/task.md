@@ -7,3 +7,5 @@
 ## 要定义两个全局组件  router-view用于显示匹配的组件内容， router-link修改hash
 
 ## current是响应式的， 可以出发router-view的重新渲染
+
+## vue-router 中router-view如何解决嵌套问题？
