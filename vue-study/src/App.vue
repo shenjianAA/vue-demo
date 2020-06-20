@@ -9,6 +9,7 @@
     -->
     <router-link to="/">Communicate</router-link>
     <router-link to="/slot">Slot</router-link>
+    <router-link to="/bar">Bar</router-link>
     <router-view></router-view>
   </div>
 </template>
