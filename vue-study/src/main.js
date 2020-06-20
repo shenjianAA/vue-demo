@@ -5,6 +5,8 @@ import router from "@/router";
 import echarts from "echarts";
 Vue.prototype.$echarts = echarts;
 
+import "echarts-gl";
+
 Vue.config.productionTip = false;
 
 new Vue({
