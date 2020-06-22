@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
+  <div id="home">
+    <div id="myChart" :style="{width: '500px', height: '300px'}" ref="myChart"></div>
     <div id="myChart1" :style="{width: '500px', height: '300px'}"></div>
   </div>
 </template>
@@ -13,7 +13,14 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
+  created() {},
   mounted() {
+    let mychart = this.$refs.myChart;
+    console.log(mychart);
+    mychart.style.zoom = 1 / 0.28;
+    mychart.style.transform = "scale(0.28)";
+    mychart.style.transformOrigin = "0% 0%";
+    mychart.style.width = "28%";
     this.drawChart();
     this.draw3DChart();
   },
@@ -123,20 +130,6 @@ export default {
               //左面
               normal: {
                 color: "#FC9F9F"
-                //   color: function(params) {
-                //     let colorList = [
-                //       "#EA5353",
-                //       "#DB8D4D",
-                //       "#9DD530",
-                //       "#38CFCA",
-                //       "#6C54E2",
-                //       "#749f83",
-                //       "#ca8622",
-                //       "#bda29a",
-                //       "#6e7074",
-                //       "#546570"
-                //     ];
-                //     return colorList[params.dataIndex];
               }
             }
           },
@@ -151,22 +144,6 @@ export default {
               //右面
               normal: {
                 color: "#FC9F9F"
-                //   color: function(params) {
-                //     let colorList = [
-                //       "#FA6363",
-                //       "#F1A363",
-                //       "#AEE93C",
-                //       "#41EBE5",
-                //       "#866FF5",
-                //       "#749f83",
-                //       "#ca8622",
-                //       "#bda29a",
-                //       "#6e7074",
-                //       "#546570"
-                //     ];
-                //     return colorList[params.dataIndex];
-                //   },
-                //   barBorderRadius: [0, 0, 180, 0]
               }
             },
             data: ydata,
@@ -182,25 +159,10 @@ export default {
               //顶部
               normal: {
                 color: "#FC9F9F",
-                // color: function(params) {
-                //   let colorList = [
-                //     "#FC9F9F",
-                //     "#F7B177",
-                //     "#BBF64A",
-                //     "#4DF4EE",
-                //     "#947FFA",
-                //     "#749f83",
-                //     "#ca8622",
-                //     "#bda29a",
-                //     "#6e7074",
-                //     "#546570"
-                //   ];
-                //   return colorList[params.dataIndex];
-                // },
                 borderColor: "",
                 borderWidth: 0.01,
                 label: {
-                  show: true, //开启显示
+                  show: false, //开启显示
                   position: "top", //在上方显示
                   textStyle: {
                     //数值样式
@@ -514,5 +476,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
+#home {
+  zoom: 0.28;
+}
 </style>

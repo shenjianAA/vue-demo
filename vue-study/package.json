@@ -10,7 +10,7 @@
   "dependencies": {
     "async-validator": "^3.3.0",
     "core-js": "^3.6.5",
-    "echarts": "^4.8.0",
+    "echarts": "4.2.1",
     "echarts-gl": "^1.1.1",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4"
