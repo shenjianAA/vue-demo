@@ -1,5 +1,8 @@
 <template>
   <div id="home">
+    xxxx:
+    <div v-for="item in list" :key="item.id">item: {{item}}</div>
+    <button @click="clickFn">click me</button>
     <div id="myChart" :style="{width: '500px', height: '300px'}" ref="myChart"></div>
     <div id="myChart1" :style="{width: '500px', height: '300px'}"></div>
   </div>
@@ -10,21 +13,55 @@ export default {
   name: "hello",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      list: []
     };
   },
-  created() {},
+  created() {
+    let that = this;
+    setTimeout(function() {
+      that.list = that.createObj(3);
+      console.log(that.list);
+    }, 300);
+  },
   mounted() {
     let mychart = this.$refs.myChart;
     console.log(mychart);
-    mychart.style.zoom = 1 / 0.28;
-    mychart.style.transform = "scale(0.28)";
-    mychart.style.transformOrigin = "0% 0%";
-    mychart.style.width = "28%";
+    // mychart.style.zoom = 1 / 0.28;
+    // mychart.style.transform = "scale(0.28)";
+    // mychart.style.transformOrigin = "0% 0%";
+    // mychart.style.width = "28%";
     this.drawChart();
     this.draw3DChart();
   },
   methods: {
+    clickFn() {
+      let arr = [].concat(this.list);
+      //let arr = this.list;
+      arr.forEach(item => {
+        item.isShow = true;
+      });
+      this.list = arr;
+      // this.list.forEach(item => {
+      //   item.isShow = true;
+      // });
+      console.log(this.list);
+    },
+    createObj(n) {
+      let arr = [];
+      for (let i = 0; i < n; i++) {
+        let obj = {
+          id: getId(),
+          name: "name" + i,
+          isShow: false
+        };
+        arr.push(obj);
+      }
+      function getId() {
+        return new Date().getTime() + Math.random();
+      }
+      return arr;
+    },
     drawLine() {
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));
@@ -478,6 +515,5 @@ export default {
 
 <style>
 #home {
-  zoom: 0.28;
 }
 </style>
