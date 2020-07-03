@@ -50,7 +50,7 @@ sayHello("sjj");
 
 //class
 class MyComp {
-  private _foo: string; //私有属性，不可以在类的外部使用
+  private foo1: string; //私有属性，不可以在类的外部使用
   protected bar: string; //保护属性，可以再派生的类中使用
   readonly mua = "mua"; //只读属性
   static dong = "dong"; //静态属性，直接通过类访问的
@@ -58,7 +58,7 @@ class MyComp {
   //构造函数: 初始化成员变量
   //参数上添加修饰符，能够定义并初始化一个成员变量
   constructor(private tua = "tua") {
-    this._foo = "foo";
+    this.foo1 = "foo";
     this.bar = "bar";
   }
 
@@ -67,11 +67,11 @@ class MyComp {
 
   //存取器  存取数据时，可以添加额外的逻辑，
   get foo() {
-    return this._foo;
+    return this.foo1;
   }
 
   set foo(newVal) {
-    this._foo = newVal;
+    this.foo1 = newVal;
   }
 }
 
@@ -113,15 +113,16 @@ interface SquareConfig {
   width?: number;
   [propName: string]: any;
 }
-interface Square {
+interface Square1 {
   color: string;
   area: number;
 }
-function createSquare(config: SquareConfig): Square {
+function createSquare(config: SquareConfig): Square1 {
   let newSquare = { color: "white", area: 100 };
   if (config.color) {
     newSquare.color = config.color;
   }
+
   if (config.width) {
     newSquare.area = config.width * config.width;
   }
